@@ -26,8 +26,14 @@ class Form extends React.Component {
   // for calculate button:
   handleSubmit=(event)=>{
     event.preventDefault();
+    // make input an array of strings:
+    // let strArr = this.state.input.split(",").map((str)=>Number(str));
+    let strArr = this.state.input.split(",");
+    let numArr = strArr.map((str)=>Number(str));
+
     console.log(this.state.input, this.state.operation)
 
+    // for the currently selected operation:
     switch (this.state.operation) {
       case "sum":
         console.log("Calculate Sum");
