@@ -34,6 +34,40 @@ class Form extends React.Component {
     return sum;
   }
 
+  // if it's in the object, do this. Else, if it's not in the object, do that.
+  // number of occurrences of each number
+  // {
+  //   1: 10,
+  //   3: 6,
+  //   9: 12
+  // }
+  // countObj[num] - (countObj[num] || 0) + 1; // short-circuiting (if you understand this)
+  calcMode=(arr)=>{
+    let countObj = {};
+    for (let num of arr) {
+      if (countObj[num]) {
+        countObj[num] = countObj[num] + 1;
+      } else {
+        countObj[num] = 1;
+      }
+    }
+    console.log(countObj)
+    let keys = Object.keys(countObj);
+    let highestValue = 0;
+    let highestKey;
+
+    for (let key of keys) {
+      if (countObj[key] > highestValue) {
+        highestValue = countObj[key];
+        highestKey = key;
+      }
+    }
+    console.log(highestKey);
+
+    // console.log(countObj)
+    // console.log(Object.keys(countObj))
+  }
+
 
   // for calculate button:
   handleSubmit=(event)=>{
@@ -47,16 +81,15 @@ class Form extends React.Component {
 
     // for the currently selected operation:
     let result = 0;
-
     switch (this.state.operation) {
       case "sum":
-        let result = this.calcSum(numArr) // add our numArr value to this function
+        let sumResult = this.calcSum(numArr) // add our numArr value to this function
         break;
       case "average":
-        let result= this.calcSum(numArr)/numArr.length;
+        let avgResult= this.calcSum(numArr)/numArr.length;
         break;
       case "mode":
-        console.log("Calculate Mode");
+        result = this.calcMode(numArr)
         break;
       default:
         console.log("Nothing Selected.")
