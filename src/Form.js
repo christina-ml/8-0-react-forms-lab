@@ -77,8 +77,23 @@ class Form extends React.Component {
     event.preventDefault();
     let strArr = this.state.input.split(",");
     let numArr = strArr.map((str)=>Number(str));
+    // console.log(this.state.input)
 
-    console.log(this.state.input)
+    /* Validate input - empty string, if values are NaN...*/
+    let isValid = true;
+    if (this.state.input === '') {
+      isValid = false;
+    }
+    for (let num of numArr) { 
+      if (isNaN(num)) {
+        isValid = false;
+      }
+    }
+    if (!isValid) {
+      this.props.handleChangeResult("Invalid input.");
+      return;
+    }
+
 
     // for the currently selected operation:
     let result = 0;
