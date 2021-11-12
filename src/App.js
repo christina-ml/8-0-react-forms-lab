@@ -16,12 +16,10 @@ class App extends React.Component {
   }
 
   render() {
-    this.handleChangeResult("Clickity Click!!");
-
     return (
       <main>
         <p>Enter each number in the array, separated by a ','</p>
-        <Form />
+        <Form handleChangeResult={this.handleChangeResult}/>
         <section id="result">
           <p>{this.state.displayResult}</p>
         </section>
