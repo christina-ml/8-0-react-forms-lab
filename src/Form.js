@@ -69,6 +69,20 @@ class Form extends React.Component {
     // console.log(Object.keys(countObj))
   }
 
+  handleValidation=(numArr)=>{
+    /* Validate input - empty string, if values are NaN...*/
+    let flag = true;
+    if (this.state.input === '') {
+      flag = false;
+    }
+    for (let num of numArr) { 
+      if (isNaN(num)) {
+        flag = false;
+      }
+    }
+    return flag;
+  }
+
 
   // for calculate button:
   // make input an array of strings:
@@ -79,16 +93,7 @@ class Form extends React.Component {
     let numArr = strArr.map((str)=>Number(str));
     // console.log(this.state.input)
 
-    /* Validate input - empty string, if values are NaN...*/
-    let isValid = true;
-    if (this.state.input === '') {
-      isValid = false;
-    }
-    for (let num of numArr) { 
-      if (isNaN(num)) {
-        isValid = false;
-      }
-    }
+    let isValid = this.handleValidation(numArr);
     if (!isValid) {
       this.props.handleChangeResult("Invalid input.");
       return;
