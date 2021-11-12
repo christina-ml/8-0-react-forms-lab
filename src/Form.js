@@ -97,7 +97,7 @@ class Form extends React.Component {
         console.log("Nothing Selected.")
         break;
     }
-    this.props.handleChangeResult("Jibberish"); // passing information as an argument that was created in the parent
+    this.props.handleChangeResult(result); // passing information as an argument that was created in the parent
     // result
   }
 

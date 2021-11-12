@@ -11,8 +11,11 @@ class App extends React.Component {
     }
   }
 
-  handleChangeResult=(phrase)=>{
-    console.log(phrase);
+  handleChangeResult=(result)=>{
+    // update the state to show the result. Raising state.
+    this.setState({
+      displayResult: result,
+    })
   }
 
   render() {
