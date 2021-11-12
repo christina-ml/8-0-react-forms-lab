@@ -97,7 +97,7 @@ class Form extends React.Component {
         console.log("Nothing Selected.")
         break;
     }
-    console.log(result);
+    // console.log(result);
   }
 
   render() {
