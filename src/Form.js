@@ -11,6 +11,7 @@ class Form extends React.Component {
     }
   }
 
+  // for handling form input & operation change input:
   handleInputChange=(event)=>{
     console.log(event.target.value) // to see the input in console as you type
     this.setState({
@@ -22,10 +23,15 @@ class Form extends React.Component {
       operation: event.target.value,
     })
   }
+  // for calculate button:
+  handleSubmit=(event)=>{
+    event.preventDefault();
+    console.log(this.state.input, this.state.operation)
+  }
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input 
           id="values" 
           name="values" 
