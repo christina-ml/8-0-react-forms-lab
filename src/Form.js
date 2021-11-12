@@ -27,6 +27,21 @@ class Form extends React.Component {
   handleSubmit=(event)=>{
     event.preventDefault();
     console.log(this.state.input, this.state.operation)
+
+    switch (this.state.operation) {
+      case "sum":
+        console.log("Calculate Sum");
+        break;
+      case "average":
+        console.log("Calculate Average");
+        break;
+      case "mode":
+        console.log("Calculate Mode");
+        break;
+      default:
+        console.log("Nothing Selected.")
+        break;
+    }
   }
 
   render() {
