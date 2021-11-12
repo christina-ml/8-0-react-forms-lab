@@ -23,6 +23,18 @@ class Form extends React.Component {
       operation: event.target.value,
     })
   }
+
+  // helper method:
+  // Accumulator pattern to find our `sum`:
+  calcSum=(arr)=>{
+    let sum = 0;
+    for(let num of arr){
+      sum += num;
+    }
+    return sum;
+  }
+
+
   // for calculate button:
   handleSubmit=(event)=>{
     event.preventDefault();
@@ -31,15 +43,17 @@ class Form extends React.Component {
     let strArr = this.state.input.split(",");
     let numArr = strArr.map((str)=>Number(str));
 
-    console.log(this.state.input, this.state.operation)
+    console.log(this.state.input)
 
     // for the currently selected operation:
     switch (this.state.operation) {
       case "sum":
-        console.log("Calculate Sum");
+        let sumResult = this.calcSum(numArr) // add our numArr value to this function
+        console.log("Calculate Sum", sumResult);
         break;
       case "average":
-        console.log("Calculate Average");
+        let avgResult= this.calcSum(numArr)/numArr.length;
+        console.log("Calculate Average", avgResult);
         break;
       case "mode":
         console.log("Calculate Mode");
