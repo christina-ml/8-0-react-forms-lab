@@ -11,8 +11,11 @@ class Form extends React.Component {
     }
   }
 
-  handleInputChange=()=>{
-
+  handleInputChange=(event)=>{
+    console.log(event.target.value) // to see the input in console as you type
+    this.setState({
+      input: event.target.value,
+    })
   }
   handleOperationChange=()=>{
     
