@@ -46,14 +46,14 @@ class Form extends React.Component {
     console.log(this.state.input)
 
     // for the currently selected operation:
+    let result = 0;
+
     switch (this.state.operation) {
       case "sum":
-        let sumResult = this.calcSum(numArr) // add our numArr value to this function
-        console.log("Calculate Sum", sumResult);
+        let result = this.calcSum(numArr) // add our numArr value to this function
         break;
       case "average":
-        let avgResult= this.calcSum(numArr)/numArr.length;
-        console.log("Calculate Average", avgResult);
+        let result= this.calcSum(numArr)/numArr.length;
         break;
       case "mode":
         console.log("Calculate Mode");
@@ -62,6 +62,7 @@ class Form extends React.Component {
         console.log("Nothing Selected.")
         break;
     }
+    console.log(result)
   }
 
   render() {
