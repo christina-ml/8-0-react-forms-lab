@@ -11,11 +11,13 @@ class App extends React.Component {
     }
   }
 
-  handleChangeResult=()=>{
-    console.log("Result has been handled");
+  handleChangeResult=(phrase)=>{
+    console.log(phrase);
   }
 
   render() {
+    this.handleChangeResult("Clickity Click!!");
+
     return (
       <main>
         <p>Enter each number in the array, separated by a ','</p>
