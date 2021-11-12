@@ -94,6 +94,12 @@ class Form extends React.Component {
     // console.log(this.state.input)
 
     let isValid = this.handleValidation(numArr);
+
+    if (this.state.operation === "") {
+      this.props.handleChangeResult("Invalid opeartion.")
+      return;
+    }
+
     if (!isValid) {
       this.props.handleChangeResult("Invalid input.");
       return;
