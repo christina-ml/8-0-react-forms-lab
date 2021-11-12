@@ -12,7 +12,7 @@ class App extends React.Component {
   }
 
   handleChangeResult=(result)=>{
-    // update the state to show the result. Raising state.
+    // update the state of handleChangeResult to show the result. Raising state.
     this.setState({
       displayResult: result,
     })

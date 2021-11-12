@@ -63,6 +63,7 @@ class Form extends React.Component {
       }
     }
     console.log(highestKey);
+    return highestKey;
 
     // console.log(countObj)
     // console.log(Object.keys(countObj))
