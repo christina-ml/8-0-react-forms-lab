@@ -70,10 +70,10 @@ class Form extends React.Component {
 
 
   // for calculate button:
+  // make input an array of strings:
+  // let strArr = this.state.input.split(",").map((str)=>Number(str));
   handleSubmit=(event)=>{
     event.preventDefault();
-    // make input an array of strings:
-    // let strArr = this.state.input.split(",").map((str)=>Number(str));
     let strArr = this.state.input.split(",");
     let numArr = strArr.map((str)=>Number(str));
 
@@ -83,19 +83,21 @@ class Form extends React.Component {
     let result = 0;
     switch (this.state.operation) {
       case "sum":
-        let sumResult = this.calcSum(numArr) // add our numArr value to this function
+        result = this.calcSum(numArr) // add our numArr value to this function
         break;
       case "average":
-        let avgResult= this.calcSum(numArr)/numArr.length;
+        result= this.calcSum(numArr)/numArr.length;
+        console.log("calculate average");
         break;
       case "mode":
         result = this.calcMode(numArr)
+        console.log("calculate mode");
         break;
       default:
         console.log("Nothing Selected.")
         break;
     }
-    console.log(result)
+    console.log(result);
   }
 
   render() {
