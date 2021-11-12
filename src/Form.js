@@ -11,11 +11,27 @@ class Form extends React.Component {
     }
   }
 
+  handleInputChange=()=>{
+
+  }
+  handleOperationChange=()=>{
+    
+  }
+
   render() {
     return (
       <form>
-        <input id="values" name="values" type="text" />
-        <select id="operation" name="operation">
+        <input 
+          id="values" 
+          name="values" 
+          type="text" 
+          value={this.state.input}
+          onInput={this.handleInputChange}
+        />
+        <select 
+          id="operation" 
+          name="operation"
+        >
           <option value=""></option>
           <option value="sum">sum</option>
           <option value="average">average</option>
