@@ -2,6 +2,15 @@ import React from "react";
 import "./Form.css";
 
 class Form extends React.Component {
+  constructor(){
+    super();
+
+    this.state = {
+      input: '',
+      operation: '',
+    }
+  }
+
   render() {
     return (
       <form>
